@@ -12,8 +12,8 @@ function init() {
 
     $this->title   = 'Faces';
     $plugin = new stdClass();
-    $plugin->version   = 2013090211;      // The current module version (Date: YYYYMMDDXX)
-    $plugin->requires  = 2013051401.00;      // Requires this Moodle version
+    $plugin->version   = 2013090212;      // The current module version (Date: YYYYMMDDXX)
+    $plugin->requires  = 2011070110.00;      // Requires this Moodle version
 
 
   }
