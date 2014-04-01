@@ -1,4 +1,3 @@
-<?php
 //
 // block_faces is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -17,35 +16,20 @@
 // by Kyle Goslin & Daniel McSweeney
 // Copyright 2013-2014 - Institute of Technology Blanchardstown.
 // 
-require_once("../../../config.php");
-
-global $CFG, $DB;
-require_login();
-$PAGE->set_context(get_system_context());
-require_once('../showfaces/renderFaces.php');
+---------------------------------------------------
+CHANGES
 
 
-$renderType = optional_param('rendertype', '', PARAM_TEXT);
-if(isset($renderType)){
-	
-	if($renderType == 'all' || $renderType == ''){
-		
-		echo renderAll();
-		
-	}
-	else if($renderType == 'group'){
-	
-		echo renderGroup();
-	
-	}
-	
-} else {
-
-	renderGroup();
-}
+---------------------------------------------------
 
 
-?>
+Version 1.3
+Date: 1st April 2014
 
-<script>window.print();</script> 
-
+- Changes File Added
+- License information added to all files
+- Moodle.org screenshots updated
+- Update to remember the first name or last name option selected
+- Updated to remember the filter option selected
+- Updated lang strings missing from show.php
+- Tested on Moodle 2.6

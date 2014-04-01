@@ -1,11 +1,23 @@
 <?php
-
-
+//
+// block_faces is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// block_faces is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+//
+// FACES BLOCK FOR MOODLE
+// by Kyle Goslin & Daniel McSweeney
+// Copyright 2013-2014 - Institute of Technology Blanchardstown.
+// 
 /* ----------------------------------------------------------------------
- * 
- * 
- * 
- * 
  * show.php
  * 
  * Description:
@@ -112,22 +124,22 @@ function buildMenu($cid){
 	global $DB, $CFG, $renderType;
 	
 	$orderBy = '';
-	$orderBy = optional_param('orderby', '', PARAM_TEXT);
+	$orderBy = optional_param('orderby', 'firstname', PARAM_TEXT);
 	
 	
 	$outputHTML = '<div style="float:right"><form action="'.$CFG->wwwroot. '/blocks/faces/showfaces/show.php?cid='.$cid.'" method="post">
-				 Order By: <select name="orderby" id="orderby">
+				 ' .get_string('orderby', 'block_faces').': <select name="orderby" id="orderby">
 								<option value="firstname">' .get_string('firstname', 'block_faces').'</option>
 								<option value="lastname">'.get_string('lastname', 'block_faces').'</option>
 						  </select>
 						  
-				 Filter: <select id="selectgroupsec" name="selectgroupsec">
+				 ' .get_string('filter', 'block_faces').': <select id="selectgroupsec" name="selectgroupsec">
 				 	<option value="all">'.get_string('showallfaces', 'block_faces').'</option>
 				 '. buildGroups($cid).'	
 				 </select>
 				 <input type="submit" value="'.get_string('update', 'block_faces').'"></input>
 				</form>
-				
+				<script>document.getElementById(\'orderby\').value="'.$orderBy.'";</script>
 				<span style="float:right">
 				
 				<form target="_blank" action="../print/page.php">
@@ -135,12 +147,16 @@ function buildMenu($cid){
 				<input type="hidden" name="rendertype" value="'.$renderType.'">
 				
 				';
-				
+					
 				// If a group was selected
-				$selectgroupsec = optional_param('selectgroupsec', '', PARAM_TEXT); 
+				$selectgroupsec = optional_param('selectgroupsec', 'all', PARAM_TEXT); 
+
 				if(isset($selectgroupsec)){
  					$outputHTML .= '<input type="hidden" name="selectgroupsec" value="'.$selectgroupsec.'">';
 				}
+					$outputHTML .= '
+					<script>document.getElementById(\'selectgroupsec\').value="'.$selectgroupsec.'";</script>
+				';
 				$outputHTML .= '
 				<input type="hidden" name="orderby" value="'.$orderBy.'">
 					
