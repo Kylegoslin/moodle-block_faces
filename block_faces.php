@@ -1,5 +1,5 @@
 <?php
-//
+// ---------------------------------------------------------------------------------
 // block_faces is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -16,13 +16,33 @@
 // FACES BLOCK FOR MOODLE
 // by Kyle Goslin & Daniel McSweeney
 // Copyright 2013-2014 - Institute of Technology Blanchardstown.
-// 
+// ---------------------------------------------------------------------------------
 
+/** 
+ * FACES BLOCK FOR MOODLE
+ * 
+ * This block allows you to view the faces of students
+ * who are currently enrolled in your class.
+ * @package    block_faces
+ * @copyright  2014 Kyle Goslin, Daniel McSweeney
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+
+
+
+
+/**
+* Main block interface
+ * @package    block_faces
+* @copyright  2014 Kyle Goslin, Daniel McSweeney
+* @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+*/
 class block_faces extends block_base {
 
 
 
-
+/** block init */
 function init() {
 
     $this->title   = 'Faces';
@@ -31,8 +51,9 @@ function init() {
     $plugin->requires  = 2011070110.00;      // Requires this Moodle version
 
 
-  }
+}
 
+/** Get the content for the block */
 function get_content() {
 
     if ($this->content !== NULL) {
@@ -44,7 +65,7 @@ function get_content() {
 	global $DB;
 
     $this->content =  new stdClass;
-    $this->content->text = getFacesNav();
+    $this->content->text = get_faces_nav();
     $this->content->footer = '';
 
     return $this->content;
@@ -52,24 +73,23 @@ function get_content() {
 }
 
 
-/*
-This is the main content generation function that is responsible for
-returning the relevant content to the user depending on what status
-they have (admin / student).
-
+/**
+* This is the main content generation function that is responsible for
+* returning the relevant content to the user depending on what status
+* they have (admin / student).
+*
 */
-function getFacesNav(){
+function get_faces_nav() {
 
 
 	global $USER, $DB, $CFG;
 	$cid = optional_param('id', '', PARAM_INT);    
 
-	$bodyHTML = '<img src="'.$CFG->wwwroot. '/blocks/faces/faces.png"><a href="'.$CFG->wwwroot. '/blocks/faces/showfaces/show.php?cid='.$cid.'"> '. get_string('showallfaces', 'block_faces').'</a><br>
-				
-				';
+	$bodyhtml = '<img src="'.$CFG->wwwroot. '/blocks/faces/faces.png">
+                 <a href="'.$CFG->wwwroot. '/blocks/faces/showfaces/show.php?cid='.$cid.'"> '. get_string('showallfaces', 'block_faces').'</a><br>';
 
 
-	return $bodyHTML;
+	return $bodyhtml;
 
 
 }

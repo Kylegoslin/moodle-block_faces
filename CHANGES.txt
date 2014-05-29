@@ -1,4 +1,3 @@
-<?php
 //
 // block_faces is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -17,18 +16,26 @@
 // by Kyle Goslin & Daniel McSweeney
 // Copyright 2013-2014 - Institute of Technology Blanchardstown.
 // 
-
-/*
- *
- *
- *    verison.php
- *
- */
-$plugin->version = 2014040113;      // The current module version (Date: YYYYMMDDXX)
-$plugin->requires = 2011070110.00;      // Requires this Moodle version
-
-$plugin->maturity = MATURITY_STABLE;
-$plugin->release = '1.3';
-?>
+---------------------------------------------------
+CHANGES
 
 
+---------------------------------------------------
+
+Version 1.4
+Date: 29 May 2014
+- Tested on Moodle 2.7
+- Improved function and variable names
+
+
+
+Version 1.3
+Date: 1st April 2014
+
+- Changes File Added
+- License information added to all files
+- Moodle.org screenshots updated
+- Update to remember the first name or last name option selected
+- Updated to remember the filter option selected
+- Updated lang strings missing from show.php
+- Tested on Moodle 2.6

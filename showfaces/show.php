@@ -17,8 +17,12 @@
 // by Kyle Goslin & Daniel McSweeney
 // Copyright 2013-2014 - Institute of Technology Blanchardstown.
 // 
-/* ----------------------------------------------------------------------
- * show.php
+/**
+ * FACES BLOCK FOR MOODLE
+ *
+ * @package    block_faces
+ * @copyright  2014 Kyle Goslin, Daniel McSweeney
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * 
  * Description:
  * This is the main display page used for calling each different reresentation
@@ -32,102 +36,93 @@ require_login();
 
 require_once('renderFaces.php');
 
-$cid = required_param('cid', PARAM_INT);
-$gid = optional_param('gid', '', PARAM_INT);    
+$cid = optional_param('cid',0, PARAM_INT);
+$gid = optional_param('gid', 0, PARAM_INT);    
 
 
 /** Navigation Bar **/
 $PAGE->navbar->ignore_active();
-$renderType = '';
+$rendertype = '';
 
 $selectgroupsec = optional_param('selectgroupsec', '', PARAM_TEXT);  
-
-
  
-if(isset($selectgroupsec)){
+if (isset($selectgroupsec)) {
 	
-	if($selectgroupsec == 'all'){
-		$renderType = 'all';
+	if ($selectgroupsec == 'all') {
+		$rendertype = 'all';
 	}
-	else if($selectgroupsec == 'group'){
-		$renderType == 'group';
+	else if ($selectgroupsec == 'group') {
+		$rendertype == 'group';
 	} 
 	
-	if(is_numeric($selectgroupsec)) {
-		$renderType = 'group';
+	if (is_numeric($selectgroupsec)) {
+		$rendertype = 'group';
 	}
 	
 		
 } else {
-		$renderType = 'all';
+		$rendertype = 'all';
 }
 
-if($renderType == 'all' || $renderType == ''){
-		$courseName = $DB->get_record('course', array('id'=>$cid), 'shortname', $strictness=IGNORE_MISSING); 
-		$PAGE->navbar->add($courseName->shortname, new moodle_url($CFG->wwwroot . '/course/view.php?id=' . $cid));
+if ($rendertype == 'all' || $rendertype == '') {
+		$coursename = $DB->get_record('course', array('id'=>$cid), 'shortname', $strictness=IGNORE_MISSING); 
+		$PAGE->navbar->add($coursename->shortname, new moodle_url($CFG->wwwroot . '/course/view.php?id=' . $cid));
 		$PAGE->navbar->add(get_string('showallfaces', 'block_faces'));
 	
 }
-else if($renderType == 'group'){
-		$courseName = $DB->get_record('course', array('id'=>$cid), 'shortname', $strictness=IGNORE_MISSING); 
-		$PAGE->navbar->add($courseName->shortname, new moodle_url($CFG->wwwroot . '/course/view.php?id=' . $cid));
+else if ($rendertype == 'group') {
+		$coursename = $DB->get_record('course', array('id'=>$cid), 'shortname', $strictness=IGNORE_MISSING); 
+		$PAGE->navbar->add($coursename->shortname, new moodle_url($CFG->wwwroot . '/course/view.php?id=' . $cid));
 		$PAGE->navbar->add(get_string('showfacesbygroup', 'block_faces'));
 }
 
 
 $PAGE->set_url('/blocks/faces/showfaces/show.php');
-$PAGE->set_context(get_system_context());
+$PAGE->set_context(context_course::instance($cid));
 $PAGE->set_heading(get_string('pluginname', 'block_faces'));
 $PAGE->set_title(get_string('pluginname', 'block_faces'));
 
 echo $OUTPUT->header();
-echo buildMenu($cid);
+echo build_menu($cid);
 
 
 // Render the page
 $selectgroupsec = optional_param('selectgroupsec', '', PARAM_TEXT);   
-if(isset($selectgroupsec)){
+if (isset($selectgroupsec)) {
 	
 	if($selectgroupsec == 'all' || $selectgroupsec == ''){
 		 
-		echo renderAll();
+		echo render_all();
 		
 	} else {
 		
-		echo renderGroup();
+		echo render_group();
 	
 	}
 	
 } else {
 
-	echo renderAll();
-}
-
-class faces_form extends moodleform {
- 
-	function definition() {
-    global $CFG;
-    global $USER, $DB;
-    $mform =& $this->_form; // Don't forget the underscore! 
-	}
+	echo render_all();
 }
 
 
-/*
+
+
+/**
  * 
  * Create the HTML output for the list on the right
  * hand side of the showfaces.php page
- * 
+ * @param int $cid course id 
  * */
-function buildMenu($cid){
+function build_menu($cid) {
 	
-	global $DB, $CFG, $renderType;
+	global $DB, $CFG, $rendertype;
 	
-	$orderBy = '';
-	$orderBy = optional_param('orderby', 'firstname', PARAM_TEXT);
+	$orderby = '';
+	$orderby = optional_param('orderby', 'firstname', PARAM_TEXT);
 	
 	
-	$outputHTML = '<div style="float:right"><form action="'.$CFG->wwwroot. '/blocks/faces/showfaces/show.php?cid='.$cid.'" method="post">
+	$outputhtml = '<div style="float:right"><form action="'.$CFG->wwwroot. '/blocks/faces/showfaces/show.php?cid='.$cid.'" method="post">
 				 ' .get_string('orderby', 'block_faces').': <select name="orderby" id="orderby">
 								<option value="firstname">' .get_string('firstname', 'block_faces').'</option>
 								<option value="lastname">'.get_string('lastname', 'block_faces').'</option>
@@ -135,16 +130,16 @@ function buildMenu($cid){
 						  
 				 ' .get_string('filter', 'block_faces').': <select id="selectgroupsec" name="selectgroupsec">
 				 	<option value="all">'.get_string('showallfaces', 'block_faces').'</option>
-				 '. buildGroups($cid).'	
+				 '. build_groups($cid).'	
 				 </select>
 				 <input type="submit" value="'.get_string('update', 'block_faces').'"></input>
 				</form>
-				<script>document.getElementById(\'orderby\').value="'.$orderBy.'";</script>
+				<script>document.getElementById(\'orderby\').value="'.$orderby.'";</script>
 				<span style="float:right">
 				
 				<form target="_blank" action="../print/page.php">
    				<input type="hidden" name="cid" value="'.$cid.'">
-				<input type="hidden" name="rendertype" value="'.$renderType.'">
+				<input type="hidden" name="rendertype" value="'.$rendertype.'">
 				
 				';
 					
@@ -152,13 +147,13 @@ function buildMenu($cid){
 				$selectgroupsec = optional_param('selectgroupsec', 'all', PARAM_TEXT); 
 
 				if(isset($selectgroupsec)){
- 					$outputHTML .= '<input type="hidden" name="selectgroupsec" value="'.$selectgroupsec.'">';
+ 					$outputhtml .= '<input type="hidden" name="selectgroupsec" value="'.$selectgroupsec.'">';
 				}
-					$outputHTML .= '
+					$outputhtml .= '
 					<script>document.getElementById(\'selectgroupsec\').value="'.$selectgroupsec.'";</script>
 				';
-				$outputHTML .= '
-				<input type="hidden" name="orderby" value="'.$orderBy.'">
+				$outputhtml .= '
+				<input type="hidden" name="orderby" value="'.$orderby.'">
 					
 				
    				<input type="submit" value="'.get_string('print', 'block_faces').'">
@@ -172,53 +167,52 @@ function buildMenu($cid){
 				</div>
 				';
 	
-	return $outputHTML;
+	return $outputhtml;
 	
 }
-/*
+/**
  * Build up the dropdown menu items with groups that are associated
  * to the currently open course.
- * 
+ * @param int $cid course id
  */
-function buildGroups($cid){
+function build_groups($cid) {
 	
 	global $DB;
 	
-	$buildHTML = '';
+	$buildhtml = '';
 	$groups = $DB->get_records('groups',array('courseid'=>$cid));
 
 	foreach($groups as $group){
-		$groupId = $group->id;
+		$groupid = $group->id;
 		
-		$buildHTML.= '<option value="'.$groupId.'">'. $group->name.'</option>';
+		$buildhtml.= '<option value="'.$groupid.'">'. $group->name.'</option>';
 	}
 	
-	return $buildHTML;
+	return $buildhtml;
 	
 }
 
-$mform = new faces_form();
-$mform->focus();
-$mform->display();		
+
+		
 echo $OUTPUT->footer();
 
- $selectgroupsec = optional_param('selectgroupsec', '', PARAM_TEXT); 
-	if(isset($selectgroupsec)){
- 		$selectedItem = $selectgroupsec;
+$selectgroupsec = optional_param('selectgroupsec', '', PARAM_TEXT); 
+    if (isset($selectgroupsec)) {
+ 		$selecteditem = $selectgroupsec;
 		echo '<script>
-				document.getElementById("selectgroupsec").value = '.$selectedItem.'
+				document.getElementById("selectgroupsec").value = '.$selecteditem.'
 			  </script>';
-	 }
+	}
 
- $orderBy = optional_param('orderby', '', PARAM_TEXT);
-	if(isset($orderBy)){
-		$orderItem = $orderBy;
+$orderby = optional_param('orderby', '', PARAM_TEXT);
+	if (isset($orderby)) {
+		$orderitem = $orderby;
 		
 		echo '<script>
-				document.getElementById("orderby").value = "'.$orderItem.'"
+				document.getElementById("orderby").value = "'.$orderitem.'"
 			  </script>';
 			  
-			  if($orderItem == ""){
+			  if($orderitem == ""){
 			  	echo '<script>
 				document.getElementById("orderby").value = "firstname";
 			  </script>';

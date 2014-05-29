@@ -1,3 +1,4 @@
+<?php
 //
 // block_faces is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -16,30 +17,18 @@
 // by Kyle Goslin & Daniel McSweeney
 // Copyright 2013-2014 - Institute of Technology Blanchardstown.
 // 
+/**
+ * FACES BLOCK FOR MOODLE
+ *
+ * @package    block_faces
+ * @copyright  2014 Kyle Goslin, Daniel McSweeney
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+$plugin->version = 2014052914;      // The current module version (Date: YYYYMMDDXX)
+$plugin->requires = 2011070110.00;      // Requires this Moodle version
 
-----------------------------------------------------------------------
-MOODLE FACES BLOCK
-
-by Kyle Goslin & Daniel McSweeney
-
-Copyright 2013-2014 - Institute of Technology Blanchardstown.
-
-Version 1.3
-
-----------------------------------------------------------------------
-
-This block is a simple way to view the names and faces of students
-in your Moodle courses in a single click.
-
-
-Group students by Moodle assigned course groups, or as an entire list.
+$plugin->maturity = MATURITY_STABLE;
+$plugin->release = '1.4';
+?>
 
 
-
-
-
-----------------------------------------------------------------------
-
-CHANGES
-
-For changes see CHANGES.txt

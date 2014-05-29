@@ -1,4 +1,3 @@
-<?php
 //
 // block_faces is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -17,35 +16,30 @@
 // by Kyle Goslin & Daniel McSweeney
 // Copyright 2013-2014 - Institute of Technology Blanchardstown.
 // 
-require_once("../../../config.php");
 
-global $CFG, $DB;
-require_login();
-$PAGE->set_context(get_system_context());
-require_once('../showfaces/renderFaces.php');
+----------------------------------------------------------------------
+MOODLE FACES BLOCK
 
+by Kyle Goslin & Daniel McSweeney
 
-$renderType = optional_param('rendertype', '', PARAM_TEXT);
-if(isset($renderType)){
-	
-	if($renderType == 'all' || $renderType == ''){
-		
-		echo renderAll();
-		
-	}
-	else if($renderType == 'group'){
-	
-		echo renderGroup();
-	
-	}
-	
-} else {
+Copyright 2013-2014 - Institute of Technology Blanchardstown.
 
-	renderGroup();
-}
+Version 1.4
+
+----------------------------------------------------------------------
+
+This block is a simple way to view the names and faces of students
+in your Moodle courses in a single click.
 
 
-?>
+Group students by Moodle assigned course groups, or as an entire list.
 
-<script>window.print();</script> 
 
+
+
+
+----------------------------------------------------------------------
+
+CHANGES
+
+For changes see CHANGES.txt

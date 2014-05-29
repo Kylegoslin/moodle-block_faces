@@ -17,6 +17,13 @@
 // by Kyle Goslin & Daniel McSweeney
 // Copyright 2013-2014 - Institute of Technology Blanchardstown.
 // 
+/**
+ * FACES BLOCK FOR MOODLE
+ *
+ * @package    block_faces
+ * @copyright  2014 Kyle Goslin, Daniel McSweeney
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 $capabilities = array(
  
     'block/faces:myaddinstance' => array(

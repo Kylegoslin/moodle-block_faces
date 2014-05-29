@@ -17,21 +17,43 @@
 // by Kyle Goslin & Daniel McSweeney
 // Copyright 2013-2014 - Institute of Technology Blanchardstown.
 // 
-$string['pluginname'] = 'Faces';
-$string['faces'] = 'Faces';
-$string['faces:addinstance'] = 'Faces';
-$string['faces:myaddinstance'] = 'Faces';
+/**
+ * FACES BLOCK FOR MOODLE
+ *
+ * @package    block_faces
+ * @copyright  2014 Kyle Goslin, Daniel McSweeney
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+require_once("../../../config.php");
 
-$string['showallfaces'] = 'Show All Faces';
-$string['showfacesbygroup'] = 'Show Faces By Group';
-$string['update'] = 'Update';
+global $CFG, $DB;
+require_login();
+$cid = optional_param('cid',0, PARAM_INT);
+$PAGE->set_context(context_course::instance($cid));
+require_once('../showfaces/renderFaces.php');
 
-$string['date'] = 'Date';
-$string['course'] = 'Course';
-$string['print'] = 'Print Faces';
 
-$string['orderby'] = 'Order By';
-$string['filter'] = 'Filter';
-$string['firstname'] = 'First Name';
-$string['lastname'] = 'Last Name';
-$string['faces:view'] = 'View';
+$rendertype = optional_param('rendertype', '', PARAM_TEXT);
+if (isset($rendertype)) {
+	
+	if ($rendertype == 'all' || $rendertype == '') {
+		
+		echo render_all();
+		
+	}
+	else if($rendertype == 'group') {
+	
+		echo render_group();
+	
+	}
+	
+} else {
+
+	render_group();
+}
+
+
+?>
+
+<script>window.print();</script> 
+

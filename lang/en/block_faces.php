@@ -1,3 +1,4 @@
+<?php
 //
 // block_faces is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -15,21 +16,30 @@
 // FACES BLOCK FOR MOODLE
 // by Kyle Goslin & Daniel McSweeney
 // Copyright 2013-2014 - Institute of Technology Blanchardstown.
-// 
----------------------------------------------------
-CHANGES
 
+/**
+ * FACES BLOCK FOR MOODLE
+ *
+ * @package    block_faces
+ * @copyright  2014 Kyle Goslin, Daniel McSweeney
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 
----------------------------------------------------
+$string['pluginname'] = 'Faces';
+$string['faces'] = 'Faces';
+$string['faces:addinstance'] = 'Faces';
+$string['faces:myaddinstance'] = 'Faces';
 
+$string['showallfaces'] = 'Show All Faces';
+$string['showfacesbygroup'] = 'Show Faces By Group';
+$string['update'] = 'Update';
 
-Version 1.3
-Date: 1st April 2014
+$string['date'] = 'Date';
+$string['course'] = 'Course';
+$string['print'] = 'Print Faces';
 
-- Changes File Added
-- License information added to all files
-- Moodle.org screenshots updated
-- Update to remember the first name or last name option selected
-- Updated to remember the filter option selected
-- Updated lang strings missing from show.php
-- Tested on Moodle 2.6
+$string['orderby'] = 'Order By';
+$string['filter'] = 'Filter';
+$string['firstname'] = 'First Name';
+$string['lastname'] = 'Last Name';
+$string['faces:view'] = 'View';
