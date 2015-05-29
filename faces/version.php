@@ -15,8 +15,8 @@
 //
 // FACES BLOCK FOR MOODLE
 // by Kyle Goslin & Daniel McSweeney
-// Copyright 2013-2014 - Institute of Technology Blanchardstown.
-
+// Copyright 2013-2015 - Institute of Technology Blanchardstown.
+// 
 /**
  * FACES BLOCK FOR MOODLE
  *
@@ -24,22 +24,11 @@
  * @copyright  2014 Kyle Goslin, Daniel McSweeney
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+$plugin->version = 2015052915;      // The current module version (Date: YYYYMMDDXX)
+$plugin->requires = 2011070110.00;      // Requires this Moodle version
 
-$string['pluginname'] = 'Faces';
-$string['faces'] = 'Faces';
-$string['faces:addinstance'] = 'Faces';
-$string['faces:myaddinstance'] = 'Faces';
+$plugin->maturity = MATURITY_STABLE;
+$plugin->release = '1.5';
+?>
 
-$string['showallfaces'] = 'Show All Faces';
-$string['showfacesbygroup'] = 'Show Faces By Group';
-$string['update'] = 'Update';
 
-$string['date'] = 'Date';
-$string['course'] = 'Course';
-$string['print'] = 'Print Faces';
-
-$string['orderby'] = 'Order By';
-$string['filter'] = 'Filter';
-$string['firstname'] = 'First Name';
-$string['lastname'] = 'Last Name';
-$string['faces:view'] = 'View';

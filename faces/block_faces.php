@@ -29,13 +29,10 @@
  */
 
 
-
-
-
 /**
 * Main block interface
  * @package    block_faces
-* @copyright  2014 Kyle Goslin, Daniel McSweeney
+* @copyright  2015 Kyle Goslin, Daniel McSweeney
 * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 */
 class block_faces extends block_base {
@@ -47,10 +44,6 @@ function init() {
 
     $this->title   = 'Faces';
     $plugin = new stdClass();
-    $plugin->version   = 2014040113;      // The current module version (Date: YYYYMMDDXX)
-    $plugin->requires  = 2011070110.00;      // Requires this Moodle version
-
-
 }
 
 /** Get the content for the block */
@@ -70,6 +63,23 @@ function get_content() {
 
     return $this->content;
   }
+  
+  
+  /**
+     * Locations where block can be displayed
+     *
+     * @return array
+     */
+    public function applicable_formats() {
+        return array('course-view' => true);
+    }
+    
+
+	/** One faces block per course */
+	public function instance_allow_multiple() {
+		return false;
+	}
+  
 }
 
 
