@@ -18,11 +18,11 @@
 // 
 ---------------------------------------------------
 CHANGES
-
+ 
 
 ---------------------------------------------------
 Version 1.5
-Date: 29 May 2017
+Date: 29 May 2015
 - Tested on Moodle 2.8 & 2.9
 - Limited block to courses only
 - On instance per course

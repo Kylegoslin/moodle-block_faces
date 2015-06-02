@@ -22,7 +22,7 @@ MOODLE FACES BLOCK
 
 by Kyle Goslin & Daniel McSweeney
 
-Copyright 2013-2014 - Institute of Technology Blanchardstown.
+Copyright 2013-2015 - Institute of Technology Blanchardstown.
 
 Version 1.5
 
@@ -34,7 +34,8 @@ in your Moodle courses in a single click.
 
 Group students by Moodle assigned course groups, or as an entire list.
 
-
+Install as a block. Place all files into a folder called faces and 
+copy to block directory. Then install via admin account as normal.
 
 
 
