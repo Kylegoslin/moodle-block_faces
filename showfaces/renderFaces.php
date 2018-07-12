@@ -20,7 +20,7 @@
  * FACES BLOCK FOR MOODLE
  *
  * @package    block_faces
- * @copyright  2014 Kyle Goslin, Daniel McSweeney
+ * @copyright  2014-2018 Kyle Goslin, Daniel McSweeney
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */ 
 global $CFG, $DB;
@@ -205,7 +205,7 @@ function print_single_face($uid, $cid) {
 	$lastname = $singlerec->lastname;
 
 	$user = $DB->get_record('user', array('id' => $uid));
-	
+	if (!user) return '';
 	
 	$picoutput = '';
 	

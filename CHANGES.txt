@@ -21,6 +21,13 @@ CHANGES
  
 
 ---------------------------------------------------
+Version 2.0
+
+
+Date: July 2018
+- Moodle 3.5 compatible
+
+
 Version 1.6
 Date: Monday April 25th 2016
 - Tested on Moodle 3.0

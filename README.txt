@@ -22,9 +22,9 @@ MOODLE FACES BLOCK
 
 by Kyle Goslin & Daniel McSweeney
 
-Copyright 2013-2015 - Institute of Technology Blanchardstown.
+Copyright 2013-2018 - Institute of Technology Blanchardstown.
 
-Version 1.5
+Version 2.0
 
 ----------------------------------------------------------------------
 
