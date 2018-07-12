@@ -15,13 +15,13 @@
 //
 // FACES BLOCK FOR MOODLE
 // by Kyle Goslin & Daniel McSweeney
-// Copyright 2013-2015 - Institute of Technology Blanchardstown.
+// Copyright 2013-2018 - Institute of Technology Blanchardstown.
 // 
 /**
  * FACES BLOCK FOR MOODLE
  *
  * @package    block_faces
- * @copyright  2014 Kyle Goslin, Daniel McSweeney
+ * @copyright  2018 Kyle Goslin, Daniel McSweeney
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 $plugin->version = 2018071220;      // The current module version (Date: YYYYMMDDXX)

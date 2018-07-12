@@ -14,7 +14,7 @@
 //
 // FACES BLOCK FOR MOODLE
 // by Kyle Goslin & Daniel McSweeney
-// Copyright 2013-2014 - Institute of Technology Blanchardstown.
+// Copyright 2013-2018 - Institute of Technology Blanchardstown.
 //
 /**
  * FACES BLOCK FOR MOODLE
@@ -42,18 +42,18 @@ function render_group() {
 	
 	
 		
-		if ($orderby == 'byid') {
-			$appendorder = ' order by userid';
-		}
-		else if ($orderby == 'firstname') {
-			$appendorder = ' order by  (select firstname from '.$CFG->prefix.'user usr where userid = usr.id)';
-		}
-		else if ($orderby == 'lastname') {
-			$appendorder = ' order by  (select lastname from '.$CFG->prefix.'user usr where userid = usr.id)';
-		}
-		 else {
-			$appendOrder = ' order by userid';
-		}
+    if ($orderby == 'byid') {
+        $appendorder = ' order by userid';
+    }
+    else if ($orderby == 'firstname') {
+        $appendorder = ' order by  (select firstname from '.$CFG->prefix.'user usr where userid = usr.id)';
+    }
+    else if ($orderby == 'lastname') {
+        $appendorder = ' order by  (select lastname from '.$CFG->prefix.'user usr where userid = usr.id)';
+    }
+    else {
+        $appendOrder = ' order by userid';
+    }
 	
 	
 	$groupname = $DB->get_record('groups', array('id'=>$selectedgroupid), $fields='*', $strictness=IGNORE_MISSING); 

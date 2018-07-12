@@ -14,7 +14,7 @@
 //
 // FACES BLOCK FOR MOODLE
 // by Kyle Goslin & Daniel McSweeney
-// Copyright 2013-2014 - Institute of Technology Blanchardstown.
+// Copyright 2013-2018 - Institute of Technology Blanchardstown.
 // 
 
 ----------------------------------------------------------------------
