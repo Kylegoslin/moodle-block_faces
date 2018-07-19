@@ -31,10 +31,11 @@ Version 2.0
 This block is a simple way to view the names and faces of students
 in your Moodle courses in a single click.
 
+This block uses the existing core Moodle user information and profile images.
 
 Group students by Moodle assigned course groups, or as an entire list.
 
-Install as a block. Place all files into a folder called faces and 
+Install as a block. Place all plugin files into a folder called faces and 
 copy to block directory. Then install via admin account as normal.
 
 

@@ -43,3 +43,5 @@ $string['filter'] = 'Filter';
 $string['firstname'] = 'First Name';
 $string['lastname'] = 'Last Name';
 $string['faces:view'] = 'View';
+
+$string['privacy:null_reason'] = 'The Faces block displays information gathered from core moodle user information, but does not store any data itself.';
