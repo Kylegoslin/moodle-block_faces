@@ -164,7 +164,7 @@ function build_menu($cid) {
 			    </div>
 			    
 
-				</div>
+				
 				';
 	
 	return $outputhtml;
