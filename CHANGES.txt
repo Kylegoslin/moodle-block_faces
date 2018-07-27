@@ -14,18 +14,19 @@
 //
 // FACES BLOCK FOR MOODLE
 // by Kyle Goslin & Daniel McSweeney
-// Copyright 2013-2016 - Institute of Technology Blanchardstown.
+// Copyright 2013-2018 - Institute of Technology Blanchardstown.
 // 
 ---------------------------------------------------
 CHANGES
  
 
 ---------------------------------------------------
-Version 2.0
-
+Plugin Version 2.0
+For Moodle 3.5
 
 Date: July 2018
 - Moodle 3.5 compatible
+- GDPR comp added (thanks to LTS)
 
 
 Version 1.6
