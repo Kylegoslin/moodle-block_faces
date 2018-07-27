@@ -25,7 +25,7 @@ by Kyle Goslin & Daniel McSweeney
 Copyright 2013-2018 - Institute of Technology Blanchardstown.
 
 Version 2.0
-For Moodle 2.5
+For Moodle 3.5
 ----------------------------------------------------------------------
 
 This block is a simple way to view the names and faces of students
