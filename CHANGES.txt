@@ -27,7 +27,7 @@ For Moodle 3.5
 Date: July 2018
 - Moodle 3.5 compatible
 - GDPR comp added (thanks to LTS)
-
+- lang string for block title added. 
 
 Version 1.6
 Date: Monday April 25th 2016
