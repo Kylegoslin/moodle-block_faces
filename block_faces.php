@@ -42,7 +42,7 @@ class block_faces extends block_base {
 /** block init */
 function init() {
 
-    $this->title   = 'Faces';
+    $this->title = get_string('pluginname','block_faces');
     $plugin = new stdClass();
 }
 
