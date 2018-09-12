@@ -205,7 +205,7 @@ function print_single_face($uid, $cid) {
 	$lastname = $singlerec->lastname;
 
 	$user = $DB->get_record('user', array('id' => $uid));
-	if (!user) return '';
+	if (!$user) return '';
 	
 	$picoutput = '';
 	
