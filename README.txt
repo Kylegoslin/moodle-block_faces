@@ -24,7 +24,7 @@ by Kyle Goslin & Daniel McSweeney
 
 Copyright 2013-2018 - Institute of Technology Blanchardstown.
 
-Version 2.0
+Version 2.1
 For Moodle 3.5
 ----------------------------------------------------------------------
 
