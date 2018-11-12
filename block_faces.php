@@ -29,6 +29,8 @@
  */
 
 
+     
+
 /**
 * Main block interface
  * @package    block_faces
@@ -92,8 +94,8 @@ function get_content() {
 function get_faces_nav() {
 
 
-	global $USER, $DB, $CFG;
-	$cid = optional_param('id', '', PARAM_INT);    
+	global $USER, $DB, $CFG; 
+	    $cid = optional_param('id', '', PARAM_INT);
 
 	$bodyhtml = '<img src="'.$CFG->wwwroot. '/blocks/faces/faces.png">
                  <a href="'.$CFG->wwwroot. '/blocks/faces/showfaces/show.php?cid='.$cid.'"> '. get_string('showallfaces', 'block_faces').'</a><br>';

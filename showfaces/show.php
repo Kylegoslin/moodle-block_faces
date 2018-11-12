@@ -40,6 +40,20 @@ $cid = optional_param('cid',0, PARAM_INT);
 $gid = optional_param('gid', 0, PARAM_INT);    
 
 
+$params = array();
+    
+if (!empty($cid)) {
+    $params = array('id' => $cid);
+}else {
+    print_error('unspecifycourseid', 'error');
+}
+    
+$context = context_course::instance($cid, MUST_EXIST);
+$course = $DB->get_record('course', $params, '*', MUST_EXIST);
+require_login($course);
+
+
+
 /** Navigation Bar **/
 $PAGE->navbar->ignore_active();
 $rendertype = '';
