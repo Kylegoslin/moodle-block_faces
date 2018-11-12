@@ -18,11 +18,14 @@
 // 
 ---------------------------------------------------
 CHANGES
- 
-
 ---------------------------------------------------
-Plugin Version 2.0
+
+
+Plugin Version 2.1
 For Moodle 3.5
+
+Date: 12/11/2018
+- Security update: User must be enrolled in a course to view the faces (Thanks to Bert)
 
 Date: July 2018
 - Moodle 3.5 compatible
