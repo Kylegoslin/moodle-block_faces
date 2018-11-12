@@ -24,7 +24,7 @@
  * @copyright  2018 Kyle Goslin, Daniel McSweeney
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-$plugin->version = 2018 11 12 00;      // The current module version (Date: YYYYMMDDXX)
+$plugin->version = 2018111200;      // The current module version (Date: YYYYMMDDXX)
 $plugin->requires = 2018051700.00;      // Requires this Moodle version
 $plugin->component = 'block_faces';
 $plugin->maturity = MATURITY_STABLE;

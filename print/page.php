@@ -33,6 +33,19 @@ $PAGE->set_context(context_course::instance($cid));
 require_once('../showfaces/renderFaces.php');
 
 
+$params = array();
+    
+if (!empty($cid)) {
+    $params = array('id' => $cid);
+}else {
+    print_error('unspecifycourseid', 'error');
+}
+    
+$context = context_course::instance($cid, MUST_EXIST);
+$course = $DB->get_record('course', $params, '*', MUST_EXIST);
+require_login($course);
+
+
 $rendertype = optional_param('rendertype', '', PARAM_TEXT);
 if (isset($rendertype)) {
 	
